@@ -1,0 +1,23 @@
+<head></head>
+<body>
+    <script src="https://isvsi-14ddd2ecd93-1768a20a5c-17846c2baf5.force.com/lightning/lightning.out.js"></script>
+    <script>
+        $Lightning.use("runtime_appointmentbooking:lightningOutGuest",    // name of the Lightning app
+            function() {                  
+                $Lightning.createComponent(
+                   "lightning:flow", // top-level component of your app
+                    { },                  // attributes to set on the component when created
+                    "lightningLocator",   // the DOM location to insert the component
+                    function(cmp) {
+                        console.log('Hi from callback');// callback when component is created and active on the page
+                        cmp.startFlow('Inbound_New_Guest_Appointment_V2');
+                    }
+                );
+            }, 'https://isvsi-14ddd2ecd93-1768a20a5c-17846c2baf5.force.com'  // Community endpoint
+        );
+    </script>
+
+<div id="lightningLocator">
+  <p>Lightning Component mentioned in the Script is invoked from here</p>
+</div>
+</body>
